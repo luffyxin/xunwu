@@ -1,7 +1,12 @@
 package com.xin.xunwu.entity;
 
+import com.xin.xunwu.base.Verify;
+
+import javax.persistence.Column;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
 import java.util.Date;
-import javax.persistence.*;
 
 @Table(name = "`house`")
 public class House {
@@ -88,6 +93,7 @@ public class House {
     /**
      * 封面
      */
+    @Verify(name = "封面",maxLength = 4,required = true)
     @Column(name = "`cover`")
     private String cover;
 

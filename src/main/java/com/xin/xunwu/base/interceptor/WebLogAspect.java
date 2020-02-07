@@ -1,4 +1,4 @@
-package com.xin.xunwu.config;
+package com.xin.xunwu.base.interceptor;
 
 import com.google.gson.Gson;
 import org.aspectj.lang.JoinPoint;

@@ -4,4 +4,7 @@ import com.xin.xunwu.entity.HouseDetail;
 import tk.mybatis.mapper.common.Mapper;
 
 public interface HouseDetailMapper extends Mapper<HouseDetail> {
+
+    HouseDetail findByHouseId(Long houseId);
+
 }

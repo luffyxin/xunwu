@@ -1,12 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.xin.xunwu.mapper.HouseTagMapper">
-  <resultMap id="BaseResultMap" type="com.xin.xunwu.entity.HouseTag">
-    <!--
-      WARNING - @mbg.generated
-    -->
-    <id column="id" jdbcType="INTEGER" property="id" />
-    <result column="house_id" jdbcType="INTEGER" property="houseId" />
-    <result column="name" jdbcType="VARCHAR" property="name" />
-  </resultMap>
+    <resultMap id="BaseResultMap" type="com.xin.xunwu.entity.HouseTag">
+        <!--
+          WARNING - @mbg.generated
+        -->
+        <id column="id" jdbcType="INTEGER" property="id"/>
+        <result column="house_id" jdbcType="INTEGER" property="houseId"/>
+        <result column="name" jdbcType="VARCHAR" property="name"/>
+    </resultMap>
+    <select id="findByNameAndHouseId" resultType="com.xin.xunwu.entity.HouseTag">
+        select *
+        from house_tag
+        where house_id = #{houseId}
+          and name = #{name}
+    </select>
+    <select id="findAllByHouseId" resultType="com.xin.xunwu.entity.HouseTag">
+        select *
+        from house_tag
+        where house_id = #{houseId}
+    </select>
+    <select id="findAllByHouseIdIn" resultType="com.xin.xunwu.entity.HouseTag">
+        select * from house_tag where
+        house_id in
+        　
+        <foreach item="item" index="index" collection="houseIds" open="(" separator="," close=")">
+            　　　　#{item}
+        </foreach>
+
+    </select>
+
+
 </mapper>
